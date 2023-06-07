@@ -1,6 +1,0 @@
-CREATE DATABASE movies;
-use movies;
-CREATE DATABASE tress;
-CREATE DATABASE institutes;
-CREATE DATABASE hotels;
-CREATE DATABASE malls;
