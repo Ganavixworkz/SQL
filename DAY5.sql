@@ -1,5 +1,5 @@
-CREATE DATABASE statess;
-CREATE TABLE statess(id int,state_name varchar(30),pin_code int,st_population int,st_capital varchar(30),st_river varchar(30),st_economy varchar(30),no_of_dist varchar(30),dis_name varchar(30),lok_sabha_constituencies int,st_areas bigint,per_capital_income bigint,st_forest varchar(30),st_agricultural_area varchar(30),st_cm_name varchar(30));
+CREATE DATABASE state_1;
+CREATE TABLE state_1(id int,state_name varchar(30),pin_code int,st_population int,st_capital varchar(30),st_river varchar(30),st_economy varchar(30),no_of_dist varchar(30),dis_name varchar(30),lok_sabha_constituencies int,st_areas bigint,per_capital_income bigint,st_forest varchar(30),st_agricultural_area varchar(30),st_cm_name varchar(30));
 select * FROM state_1;
 /*INSERTING  DATA*/
 INSERT INTO state_1 VALUES(1,'karnataka',560058,23456788,'Banglore','ganga','fiftycrore','thirty','chikballapur',7,300000,5678988,'bandipur','657sqkm','siddaramayya');
@@ -21,64 +21,58 @@ INSERT INTO state_1 VALUES(16,'Meghalaya',65789,93456788,'Shilong','vashishta','
 INSERT INTO state_1 VALUES(17,'Nagaland',87965,83456788,'kohima','parambikum','nintycrore','twentynine','chithradurga',27,3000,8789563,'madhapatna','777sqkm','Biren');
 INSERT INTO state_1 VALUES(18,'Punjab',98765,783456788,'chandigarhh','kali','fourtycrore','elevenhundred','kolar',66,300760,565468,'tharkeri','888sqkm','Naveen');
 INSERT INTO state_1 VALUES(19,'Odisha',54634,900345,'Bhubaneshwar','supa','fourtyfivecrore','fourty','haveri',29,30654,5468864,'BUforest','999sqkm','Rangaswamy');
-/*UPDATE*/
-UPDATE state_1 SET pin_code = '657865' where id=3;
-UPDATE state_1 SET state_name = 'pondichery' where id=6;
-UPDATE state_1 SET st_areas = '4300000' where id=2;
-UPDATE state_1 SET no_of_dist = 'twentynine' where id=1;
-UPDATE state_1 SET per_capital_income = 55678655 where id=4;
 
-/*UPDATE USING AND*/
-UPDATE state_1 SET pin_code = '87645' where state_name = 'Karnataka' AND id=2;
-UPDATE state_1 SET st_population = '654866554' where state_name = 'Arunachal Pradesh' AND id=25;
-UPDATE state_1 SET dis_name ='koolar' where  st_cm_name='sidhaaramayya' AND id=2;
+/*ORDER BY*/
+SELECT * FROM state_1 ORDER BY id=1;
 
-/*UPDATE USING OR*/
-UPDATE state_1 SET pin_code = '87645' where state_name = 'Karnataka' OR id=2;
-UPDATE state_1 SET st_population = '654866554' where state_name = 'Arunachal Pradesh' OR id=25;
-UPDATE state_1 SET dis_name ='koolar' where  st_cm_name='sidhaaramayya' OR id=2;
+/*ORDER BY DESCENDING*/
+SELECT * FROM state_1 ORDER BY id desc;
 
-/*delete*/
-DELETE FROM state_1 WHERE id=15;
-DELETE FROM state_1 WHERE id=9;
-DELETE FROM state_1 WHERE state_name='karnataka';
+/*DISTINCT*/
+SELECT distinct(state_name) from state_1;
 
-SELECT * FROM state_1 where state_name = 'Karnataka' AND id=2;
-SELECT * FROM state_1 where state_name = 'Arunachal Pradesh' AND id=25;
- SELECT * FROM state_1 where  st_cm_name='sidhaaramayya' AND id=2;
+/*Aggregate functions*/
+SELECT COUNT(*) FROM state_1;
+SELECT COUNT(state_name) FROM state_1;
 
-SELECT * FROM state_1 where state_name = 'Karnataka' OR id=2;
-SELECT * FROM state_1 where state_name = 'Arunachal Pradesh' OR id=25;
-SELECT * FROM state_1 where  st_cm_name='sidhaaramayya' OR id=2;
+/*SUM*/
+SELECT SUM(st_population) FROM state_1;
+SELECT SUM(st_economy) FROM state_1;
+SELECT SUM(pin_code) FROM state_1;
+SELECT SUM(id) FROM state_1;
+SELECT SUM(per_capital_income) FROM state_1;
 
-/*IN----INCLUDIND)*/
-SELECT * FROM state_1 WHERE id IN(1,4,7,9);
-SELECT * FROM state_1 WHERE state_name IN('DELHI','Jharkhand','odisha');
-SELECT * FROM state_1 WHERE lok_sabha_constituencies IN(19,13,10,20);
-SELECT * FROM state_1 WHERE st_forest IN('BU forest','avalahalli','BM kaval aagara forest');
-SELECT * FROM state_1 WHERE dis_name IN('kolar','davanagere','ballari');
+/*MAX*/
+SELECT MAX(st_population) FROM state_1;
+SELECT MAX(st_economy) FROM state_1;
+SELECT MAX(pin_code) FROM state_1;
+SELECT MAX(id) FROM state_1;
+SELECT MAX(per_capital_income) FROM state_1;
 
-/*NOT IN---EXCLUDING*/
-SELECT * FROM state_1 WHERE id NOT IN(1,4,7,9);
-SELECT * FROM state_1 WHERE state_name NOT IN('DELHI','Jharkhand','odisha');
-SELECT * FROM state_1 WHERE lok_sabha_constituencies NOT IN(19,13,10,20);
-SELECT * FROM state_1 WHERE st_forest NOT IN('BU forest','avalahalli','BM kaval aagara forest');
-SELECT * FROM state_1 WHERE dis_name NOT IN('kolar','davanagere','ballari');
-
-/*BETWEEN*/
-SELECT * FROM state_1 WHERE id BETWEEN 1 and 10;
-SELECT * FROM state_1 WHERE st_areas BETWEEN 1300 and 2000;
-SELECT * FROM state_1 WHERE id BETWEEN 11 and 20;
+/*MIN*/
+SELECT MIN(st_population) FROM state_1;
+SELECT MIN(st_economy) FROM state_1;
+SELECT MIN(pin_code) FROM state_1;
+SELECT MIN(id) FROM state_1;
+SELECT MIN(per_capital_income) FROM state_1;
 
 
+/*AVERAGE*/
+SELECT AVG(st_population) FROM state_1;
+SELECT AVG(st_economy) FROM state_1;
+SELECT AVG(pin_code) FROM state_1;
+SELECT AVG(id) FROM state_1;
+SELECT AVG(per_capital_income) FROM state_1;
 
 
+/*STRING*/
+SELECT instr('GANAVI','A');
+SELECT instr(state_name,'A') FROM state_1;
 
-
-
-
-
-
+/*SUB STRING*/
+SELECT SUBSTR('GANAVI',3,4);
+SELECT SUBSTR('GANAVI',3,6);
+SELECT SUBSTR(state_name,4,7)from state_1;
 
 
 
