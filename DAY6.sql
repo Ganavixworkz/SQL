@@ -1,5 +1,5 @@
-CREATE DATABASE state_1;
-CREATE TABLE state_1(id int,state_name varchar(30),pin_code int,st_population int,st_capital varchar(30),st_river varchar(30),st_economy varchar(30),no_of_dist varchar(30),dis_name varchar(30),lok_sabha_constituencies int,st_areas bigint,per_capital_income bigint,st_forest varchar(30),st_agricultural_area varchar(30),st_cm_name varchar(30));
+CREATE DATABASE stateee;
+CREATE TABLE stateee(id int,state_name varchar(30),pin_code int,st_population int,st_capital varchar(30),st_river varchar(30),st_economy varchar(30),no_of_dist varchar(30),dis_name varchar(30),lok_sabha_constituencies int,st_areas bigint,per_capital_income bigint,st_forest varchar(30),st_agricultural_area varchar(30),st_cm_name varchar(30));
 select * FROM state_1;
 /*INSERTING  DATA*/
 INSERT INTO state_1 VALUES(1,'karnataka',560058,23456788,'Banglore','ganga','fiftycrore','thirty','chikballapur',7,300000,5678988,'bandipur','657sqkm','siddaramayya');
@@ -21,58 +21,50 @@ INSERT INTO state_1 VALUES(16,'Meghalaya',65789,93456788,'Shilong','vashishta','
 INSERT INTO state_1 VALUES(17,'Nagaland',87965,83456788,'kohima','parambikum','nintycrore','twentynine','chithradurga',27,3000,8789563,'madhapatna','777sqkm','Biren');
 INSERT INTO state_1 VALUES(18,'Punjab',98765,783456788,'chandigarhh','kali','fourtycrore','elevenhundred','kolar',66,300760,565468,'tharkeri','888sqkm','Naveen');
 INSERT INTO state_1 VALUES(19,'Odisha',54634,900345,'Bhubaneshwar','supa','fourtyfivecrore','fourty','haveri',29,30654,5468864,'BUforest','999sqkm','Rangaswamy');
+/*LIKE*/
+select * FROM state_1 WHERE state_name LIKE 'A%';
+select * FROM state_1 WHERE state_name LIKE '%M';
+select * FROM state_1 WHERE st_river LIKE 'k%';
+/*NOT LIKE*/
+select * FROM state_1 WHERE state_name NOT LIKE 'A%';
+select * FROM state_1 WHERE state_name NOT LIKE '%M';
+select * FROM state_1 WHERE st_river NOT LIKE 'k%';
+/*LOWER CASE*/
+SELECT LOWER(State_name)FROM state_1;
+SELECT LOWER(st_river)FROM state_1;
+SELECT LOWER(st_capital)FROM state_1;
+/*UPPER CASE*/
+SELECT UPPER(State_name)FROM state_1;
+SELECT UPPER(st_river)FROM state_1;
+/*CONCAT*/
+SELECT CONCAT(state_name,st_river)FROM state_1;
+SELECT CONCAT(state_name,pin_code)FROM state_1;
+SELECT CONCAT(st_river,st_population)FROM state_1;
+/*LENGTH*/
+SELECT LENGTH(state_name)FROM state_1;
+SELECT LENGTH(st_economy)FROM state_1;
+SELECT LENGTH(st_river)FROM state_1;
+/*LTRIM----LEFT REMOVE*/
+SELECT LTRIM(state_name) FROM state_1;
+SELECT LTRIM(st_economy) FROM state_1;
+SELECT LTRIM(st_population) FROM state_1;
+/*RTRIM----RIGHT REMOVE*/
+SELECT RTRIM(state_name) FROM state_1;
+SELECT RTRIM(st_economy) FROM state_1;
+SELECT RTRIM(st_population) FROM state_1;
+SELECT LTRIM(RTRIM(state_name))FROM state_1;
+/* LPAD----LEFT PADDING---ADDING STRING TO EXISTING STRING AT LEFT*/
+SELECT LPAD('karnataka',16,'a')FROM state_1;
+SELECT LPAD('karnataka',5,'ab')FROM state_1;
+SELECT LPAD('karnataka',20,'abds')FROM state_1;
+/*RPAD-----RIGHT PADDING---ADDING STRING RIGHTSIDE OF EXISTING ONE*/
+SELECT RPAD('karnataka',16,'a')FROM state_1;
+SELECT RPAD('karnataka',5,'ab')FROM state_1;
+SELECT RPAD('karnataka',20,'abds')FROM state_1;
+/*DUPLICATE TABLE CREATION*/
+CREATE TABLE state_dup as select * FROM state_1;
+select * FROM state_dup;
 
-/*ORDER BY*/
-SELECT * FROM state_1 ORDER BY id=1;
-
-/*ORDER BY DESCENDING*/
-SELECT * FROM state_1 ORDER BY id desc;
-
-/*DISTINCT*/
-SELECT distinct(state_name) from state_1;
-
-/*Aggregate functions*/
-SELECT COUNT(*) FROM state_1;
-SELECT COUNT(state_name) FROM state_1;
-
-/*SUM*/
-SELECT SUM(st_population) FROM state_1;
-SELECT SUM(st_economy) FROM state_1;
-SELECT SUM(pin_code) FROM state_1;
-SELECT SUM(id) FROM state_1;
-SELECT SUM(per_capital_income) FROM state_1;
-
-/*MAX*/
-SELECT MAX(st_population) FROM state_1;
-SELECT MAX(st_economy) FROM state_1;
-SELECT MAX(pin_code) FROM state_1;
-SELECT MAX(id) FROM state_1;
-SELECT MAX(per_capital_income) FROM state_1;
-
-/*MIN*/
-SELECT MIN(st_population) FROM state_1;
-SELECT MIN(st_economy) FROM state_1;
-SELECT MIN(pin_code) FROM state_1;
-SELECT MIN(id) FROM state_1;
-SELECT MIN(per_capital_income) FROM state_1;
-
-
-/*AVERAGE*/
-SELECT AVG(st_population) FROM state_1;
-SELECT AVG(st_economy) FROM state_1;
-SELECT AVG(pin_code) FROM state_1;
-SELECT AVG(id) FROM state_1;
-SELECT AVG(per_capital_income) FROM state_1;
-
-
-/*STRING*/
-SELECT instr('GANAVI','A');
-SELECT instr(state_name,'A') FROM state_1;
-
-/*SUB STRING*/
-SELECT SUBSTR('GANAVI',3,4);
-SELECT SUBSTR('GANAVI',3,6);
-SELECT SUBSTR(state_name,4,7)from state_1;
 
 
 
